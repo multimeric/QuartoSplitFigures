@@ -6,9 +6,9 @@ contributes:
   filters: 
     - split-figures.lua
   formats:
-    common:
-      filters:
-        - split-figures.lua
+    # common:
+    #   filters:
+    #     - split-figures.lua
     html:
     pdf:
     docx:

@@ -32,31 +32,34 @@ local function newpage(format)
   end
 end
 
-function Pandoc(doc)
-  figures = {}
-  doc:walk({
-    Div = function(div)
-      if div.identifier:sub(0, 3) == "fig" then
-        table.insert(figures, div)
-        table.insert(figures, newpage(FORMAT))
-      end
-    end
-  })
+-- function Pandoc(doc)
+--   quarto.log.output(doc)
+--   figures = {}
+--   doc:walk({
+--     Div = function(div)
+--       if div.identifier:sub(0, 3) == "fig" then
+--         table.insert(figures, div)
+--         table.insert(figures, newpage(FORMAT))
+--       end
+--     end
+--   })
 
-  -- doc.meta.labels = {}
-  -- Remove the title, which isn't needed
-  doc.meta.title = pandoc.Inlines({})
-  -- Remove page numbering
-  if quarto.doc.is_format("pdf") then
-    doc.meta["header-includes"][1]:insert(pandoc.RawBlock(
-      "latex", "\\pagenumbering{gobble}"
-    ))
-  elseif quarto.doc.is_format("docx") then
-    quarto.log.output(doc.meta)
-  end
+--   -- doc.meta.labels = {}
+--   -- Remove the title, which isn't needed
+--   doc.meta.title = pandoc.Inlines({})
+--   -- Remove page numbering
+--   if quarto.doc.is_format("pdf") then
+--     doc.meta["header-includes"][1]:insert(pandoc.RawBlock(
+--       "latex", "\\pagenumbering{gobble}"
+--     ))
+--   elseif quarto.doc.is_format("docx") then
+--     quarto.log.output(doc.meta)
+--   end
 
-  return pandoc.Pandoc(figures, doc.meta)
-end
+--   -- table.remove(figures, 1)
+--     quarto.log.output(figures)
+--   return pandoc.Pandoc(figures, doc.meta)
+-- end
 
 -- print(
 --       pandoc.writers
@@ -65,13 +68,13 @@ end
 --   print("bar")
 -- end
 
--- function Div(div)
---   if div.identifier:sub(0, 3) == "fig" then
---     file = assert(io.open(div.identifier .. "." .. FORMAT, "w"))
---     file:write(
---       pandoc.write(
---         pandoc.Pandoc(div), FORMAT, PANDOC_WRITER_OPTIONS
---       )
---     )
---   end
--- end
+function Div(div)
+  if div.identifier:sub(0, 3) == "fig" then
+    file = assert(io.open(div.identifier .. "." .. FORMAT, "w"))
+    file:write(
+      pandoc.write(
+        pandoc.Pandoc(div), FORMAT, PANDOC_WRITER_OPTIONS
+      )
+    )
+  end
+end

@@ -2,7 +2,15 @@
 title: "Split-figures Example"
 crossref:
   fig-title: '**Figure**'
-format: figures-list-pdf
+format:
+  # figures-list-pdf:
+  #   filters:
+  #     - quarto
+  #     - _extensions/figures-list/split-figures.lua
+  figures-list-docx:
+    filters:
+      - quarto
+      - _extensions/figures-list/split-figures.lua
 ---
 
 How to write a simple sequence of numbers in three programming languages:
