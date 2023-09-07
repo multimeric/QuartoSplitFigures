@@ -3,14 +3,11 @@ title: "Split-figures Example"
 crossref:
   fig-title: '**Figure**'
 format:
-  # figures-list-pdf:
-  #   filters:
-  #     - quarto
-  #     - _extensions/figures-list/split-figures.lua
+  docx: default
   figures-list-docx:
     filters:
       - quarto
-      - _extensions/figures-list/split-figures.lua
+      - split-figures
 ---
 
 How to write a simple sequence of numbers in three programming languages:

@@ -1,8 +1,9 @@
-# Figures-list Format
+# Quarto Split Figures
+
+This is a simple extension for splitting your figures into multiple documents, one for each figure.
+Some journals require you to submit each figure as a separate file, which this extension aims to facilitate.
 
 ## Installing
-
-*TODO*: Replace the `<github-organization>` with your GitHub organization.
 
 ```bash
 quarto use template <github-organization>/figures-list
@@ -21,4 +22,3 @@ This will install the extension and create an example qmd file that you can use 
 ## Example
 
 Here is the source code for a minimal sample document: [example.qmd](example.qmd).
-
