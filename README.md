@@ -13,9 +13,10 @@ quarto add multimeric/QuartoSplitFigures
 
 `QuartoSplitFigures` provides a new format for each of the main Quarto outputs.
 These are:
-    * `split-figures-docx`
-    * `split-figures-pdf`
-    * `split-figures-html`
+
+* `split-figures-docx`
+* `split-figures-pdf`
+* `split-figures-html`
 
 For each format that you want to add figure generation to, you will have to add config to your quarto metadata to enable this format and the appropriate filter.
 For example, if you want to output your figures in docx format, you would add the following to your Quarto metadata:
