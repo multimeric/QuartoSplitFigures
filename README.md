@@ -53,3 +53,4 @@ So if you have figures 1a, 1b and 2, the extension will output four figures:
 ## Known Issues
 
 * The exact combination of `fig-align` and `layout-ncol` seems to cause the alignment to be lost
+* Figure numbering will be broken with PDF output. This is because, for LaTeX-based formats, the numbering is handled by LaTeX and not by Quarto, making it difficult if not impossible to split such a document.
