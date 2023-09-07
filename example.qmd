@@ -4,7 +4,7 @@ crossref:
   fig-title: '**Figure**'
 format:
   docx: default
-  figures-list-docx:
+  split-figures-docx:
     filters:
       - quarto
       - split-figures
