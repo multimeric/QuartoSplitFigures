@@ -9,7 +9,7 @@ Some journals require you to submit each figure as a separate file, which this e
 quarto add multimeric/QuartoSplitFigures
 ```
 
-## Using
+## Usage
 
 `QuartoSplitFigures` provides a new format for each of the main Quarto outputs.
 These are:
@@ -28,13 +28,28 @@ format:
 ```
 Note that the filter section is mandatory.
 
-Then, you render your regular document as normal, but when you want to output the figures, you run `quarto render split-figures-docx`, and several docx files will be generated in your working directory.
+Then, you render your regular document as normal, but when you want to output the figures, you run `quarto render --to split-figures-docx`, and several docx files will be generated in your working directory.
 
 ## Example
 
 [example.qmd](example.qmd) demonstrates a simple example of this.
 It presents 3 figures, and the appropriate metadata.
-Then, after running `quarto render example.qmd`, the following files will be created:
+Then, after running `quarto render example.qmd --to split-figures-docx`, the following files will be created:
+
 * `fig-js.docx`
 * `fig-python.docx`
 * `fig-r.docx`
+
+## Subfigures
+
+If your document uses subfigures, `QuartoSplitFigures` will actually output one figure for each figure **and** subfigure.
+So if you have figures 1a, 1b and 2, the extension will output four figures:
+
+* Figure 1 (including both subfigures)
+* Figure 1a
+* Figure 1b
+* Figure 2
+
+## Known Issues
+
+* The exact combination of `fig-align` and `layout-ncol` seems to cause the alignment to be lost
